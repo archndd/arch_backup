@@ -1,0 +1,118 @@
+add ~/Music/
+set lib_sort=albumartist date album discnumber tracknumber title filename play_count
+set lib_sort=play_count albumartist date album discnumber tracknumber title filename play_count
+add ~/Musescore/
+q
+set color_titleline_bg=magenta
+set color_titleline_bg=megenta
+set color_titleline_bg=red
+set color_titleline_bg=yellow
+set color_titleline_bg=lightred
+set color_titleline_bg=lightblue
+set color_titleline_bg=cyan
+set color_titleline_bg=green
+set color_titleline_bg=blue
+unmark
+mark
+save -p hello
+pl-rename default
+load -p default
+invert
+add -p ~/Music/
+save
+save hello
+save "newplaylist"
+save new
+update-cache
+clear
+add ~/Music/Biru Baru - Pluto.mp3
+update
+cache
+filter
+update-command
+set format_title=%a - %t (%y)
+set format_title= %a - %t (%y)
+set format_title=%{status} %a - %t (%y)
+set altformat_title= %f
+set altformat_title=%{status} %f
+set altformat_current= %F 
+set altformat_current=%{status} %F 
+set altformat_title=%f
+w
+set color_win_cur=lightcyan
+set color_win_cur=cyan
+set color_win_sel_bg=lightred
+set color_win_sel_fg=white
+set color_win_sel_fg=darkgray
+set color_win_sel_fg=black
+set color_win_sel_fg=blue
+set color_win_sel_fg=magenta
+set color_win_sel_fg=green
+set color_win_sel_fg=red
+set color_win_sel_bg=yellow
+set color_win_sel_bg=red
+set color_win_sel_bg=blue
+set color_win_sel_attr=
+set color_win_sel_attr=reverse
+set color_win_sel_attr=default
+set color_win_sel_bg=cyan
+set color_win_sel_bg=
+set color_win_sel_bg=238
+set color_win_sel_bg=39
+set color_win_sel_bg=240
+set color_win_sel_bg=236
+set color_win_sel_bg=235
+set color_win_sel_attr=bold
+set color_win_sel_bg=black
+set color_win_sel_fg=cyan
+set color_win_sel_bg=lightcyan
+set color_win_sel_bg=lightyellow
+set color_win_sel_attr=standout
+set color_win_sel_attr=stanout
+set color_win_sel_attr=blink
+set color_win_sel_attr=underline
+set color_win_sel_attr=none
+set color_win_sel_fg=gray
+set color_win_sel_fg=lightgray
+set color_win_sel_attr=italic
+set color_win_sel_attr=normal
+set color_win_sel_fg=darkgary
+set color_win_sel_bg=cuan
+set color_win_sel_bg=83
+set color_win_sel_bg=417
+set color_win_sel_bg=41
+set color_win_sel_bg=47
+set color_win_sel_bg=48
+set color_win_sel_fg=brown
+set color_win_sel_fg=orange
+set color_win_sel_fg=grey
+set color_win_sel_fg=234
+set color_win_sel_fg=23
+set color_win_sel_fg=222
+set color_win_sel_fg=000
+set color_win_sel_attr=red
+set color_win_sel_attr=blue
+set color_win_sel_fg=lightgreen
+set color_win_sel_fg=lightblack
+set color_win_sel_fg=boldblack
+set color_win_sel_bg=pink
+set color_win_sel_bg=green
+set color_win_cur=lightred
+set color_win_cur=lightyellow
+set color_win_cur=red
+set color_titleline_bg=lightmagenta
+set color_titleline_fg=white
+set color_titleline_fg=black
+set color_titleline_bg=default
+set color_titleline_bg=lightblack
+set color_titleline_bg=lightwhite
+set color_titleline_bg=white
+set color_titleline_bg=lightyellow
+set color_titleline_fg=red
+set format_current= %a - %t%= %y 
+bind -f common = vol +5%
+bind -f common + vol +5%
+bind -f common - vol -5%
+filter 
+shell 
+add ~/Music

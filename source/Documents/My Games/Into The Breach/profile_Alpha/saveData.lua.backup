@@ -1,0 +1,626 @@
+GameData = {["save_version"] = 1, ["language"] = 1, ["network"] = 5, ["networkMax"] = 7, ["overflow"] = 0, ["seed"] = 20630, ["difficulty"] = 1, ["ach_info"] = {["squad"] = "Detritus_A", ["trackers"] = {["Detritus_B_2"] = 0, ["Global_Challenge_Power"] = 0, ["Archive_A_1"] = 0, ["Archive_B_2"] = 0, ["Rust_A_2"] = 0, ["Rust_A_3"] = 0, ["Pinnacle_A_3"] = 0, ["Archive_B_1"] = 0, ["Pinnacle_B_3"] = 0, ["Detritus_B_1"] = 0, ["Pinnacle_B_1"] = 0, ["Global_Island_Mechs"] = 8, ["Global_Island_Building"] = 0, },
+},
+
+
+["current"] = {["score"] = 4906, ["time"] = 1215801.250000, ["kills"] = 35, ["damage"] = 0, ["failures"] = 1, ["difficulty"] = 1, ["victory"] = false, ["islands"] = 1, ["squad"] = 3, 
+["mechs"] = {"ElectricMech", "WallMech", "RockartMech", },
+["colors"] = {3, 3, 3, },
+["weapons"] = {"Prime_Lightning_A", "", "Brute_Grapple", "Support_Force", "Ranged_Rockthrow", "", },
+["pilot0"] = {["id"] = "Pilot_Repairman", ["name"] = "Harold Schmidt", ["name_id"] = "Pilot_Repairman_Name", ["renamed"] = false, ["skill1"] = 3, ["skill2"] = 1, ["exp"] = 50, ["level"] = 2, ["travel"] = 1, ["final"] = 1, ["starting"] = true, ["last_end"] = 1, },
+["pilot1"] = {["id"] = "Pilot_Pinnacle", ["name"] = "Zera", ["name_id"] = "", ["renamed"] = false, ["skill1"] = 0, ["skill2"] = 1, ["exp"] = 14, ["level"] = 0, ["travel"] = 0, ["final"] = 0, ["starting"] = true, },
+["pilot2"] = {["id"] = "Pilot_Archive", ["name"] = "Maria Prieto", ["name_id"] = "", ["renamed"] = false, ["skill1"] = 1, ["skill2"] = 2, ["exp"] = 23, ["level"] = 0, ["travel"] = 0, ["final"] = 0, ["starting"] = true, },
+},
+["current_squad"] = 3, }
+ 
+
+RegionData = {
+["sector"] = 0, ["island"] = 0, ["secret"] = false, 
+["island0"] = {["corporation"] = "Corp_Grass", ["id"] = 0, ["secured"] = true, },
+["island1"] = {["corporation"] = "Corp_Desert", ["id"] = 1, ["secured"] = false, },
+["island2"] = {["corporation"] = "Corp_Snow", ["id"] = 2, ["secured"] = false, },
+["island3"] = {["corporation"] = "Corp_Factory", ["id"] = 3, ["secured"] = false, },
+
+["turn"] = 5, ["iTower"] = 5, ["quest_tracker"] = 1, ["quest_id"] = 0, ["podRewards"] = {},
+
+
+["region0"] = {["mission"] = "", ["state"] = 3, ["name"] = "Storage Vaults", ["objectives"] = {["0"] = {["text"] = "Mission_Volatile_PreGame", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+["1"] = {["text"] = "Bonus_Simple_Asset", ["param1"] = "Str_Battery_Name", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 1, },
+},
+},
+
+["region1"] = {["mission"] = "", ["state"] = 2, ["name"] = "Chronology Hall", ["objectives"] = {["0"] = {["text"] = "Mission_Tanks_Obj", ["param1"] = "", ["param2"] = "", ["value"] = 2, ["potential"] = 2, ["category"] = 0, },
+["1"] = {["text"] = "Pod_Objective", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 3, },
+},
+},
+
+["region2"] = {["mission"] = "", ["state"] = 2, ["name"] = "Safeguard Valley", ["objectives"] = {["0"] = {["text"] = "Bonus_Simple_Grid", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+["1"] = {["text"] = "Bonus_Simple_Asset", ["param1"] = "Str_Power_Name", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 1, },
+},
+},
+
+["region3"] = {["mission"] = "", ["state"] = 2, ["name"] = "Archival Flats", ["objectives"] = {["0"] = {["text"] = "Bonus_Simple_Vek", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+["1"] = {["text"] = "Bonus_Simple_Asset", ["param1"] = "Str_Bar_Name", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+},
+},
+
+["region4"] = {["mission"] = "", ["state"] = 2, ["name"] = "Research Center", ["objectives"] = {["0"] = {["text"] = "Mission_Train_PostDamaged", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 2, ["category"] = 0, },
+},
+},
+
+["region5"] = {["mission"] = "", ["state"] = 2, ["name"] = "Corporate HQ", ["objectives"] = {["0"] = {["text"] = "Misison_FireflyBoss_Obj", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+["1"] = {["text"] = "Bonus_Simple_Asset", ["param1"] = "Str_Tower_Name", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+},
+},
+
+["region6"] = {["mission"] = "", ["state"] = 3, ["name"] = "Accord Repository", ["objectives"] = {["0"] = {["text"] = "Mission_Artillery_Obj", ["param1"] = "", ["param2"] = "", ["value"] = 0, ["potential"] = 1, ["category"] = 0, },
+},
+},
+
+["region7"] = {["mission"] = "", ["state"] = 3, ["name"] = "Restoration Center", ["objectives"] = {["0"] = {["text"] = "Bonus_Simple_Grid", ["param1"] = "", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 0, },
+["1"] = {["text"] = "Bonus_Simple_Asset", ["param1"] = "Str_Nimbus_Name", ["param2"] = "", ["value"] = 1, ["potential"] = 1, ["category"] = 1, },
+},
+},
+}
+ 
+
+GAME = { 
+["SeenPilots"] = { 
+[1] = "Pilot_Repairman", 
+[2] = "Pilot_Pinnacle", 
+[4] = "Pilot_Miner", 
+[3] = "Pilot_Archive" 
+}, 
+["Island"] = 1, 
+["WeaponDeck"] = { 
+[31] = "Ranged_BackShot", 
+[2] = "Prime_Lasermech", 
+[8] = "Prime_Flamethrower", 
+[32] = "Ranged_Ice", 
+[33] = "Ranged_SmokeBlast", 
+[34] = "Ranged_Fireball", 
+[35] = "Ranged_RainingVolley", 
+[9] = "Prime_Areablast", 
+[36] = "Ranged_Wide", 
+[37] = "Ranged_Dual", 
+[38] = "Science_Pullmech", 
+[39] = "Science_Gravwell", 
+[10] = "Prime_Spear", 
+[40] = "Science_Swap", 
+[41] = "Science_Repulse", 
+[42] = "Science_AcidShot", 
+[43] = "Science_Confuse", 
+[11] = "Prime_Leap", 
+[44] = "Science_SmokeDefense", 
+[45] = "Science_Shield", 
+[46] = "Science_FireBeam", 
+[3] = "Prime_ShieldBash", 
+[12] = "Prime_SpinFist", 
+[48] = "Science_PushBeam", 
+[49] = "Support_Boosters", 
+[50] = "Support_Smoke", 
+[51] = "Support_Refrigerate", 
+[13] = "Prime_Sword", 
+[52] = "Support_Destruct", 
+[53] = "DeploySkill_ShieldTank", 
+[54] = "DeploySkill_Tank", 
+[55] = "DeploySkill_PullTank", 
+[14] = "Brute_Tankmech", 
+[56] = "Support_SmokeDrop", 
+[57] = "Support_Missiles", 
+[58] = "Support_Wind", 
+[59] = "Support_Blizzard", 
+[15] = "Brute_Jetmech", 
+[60] = "Passive_FlameImmune", 
+[61] = "Passive_Electric", 
+[62] = "Passive_Leech", 
+[1] = "Prime_Punchmech", 
+[4] = "Prime_Rockmech", 
+[16] = "Brute_Mirrorshot", 
+[64] = "Passive_Defenses", 
+[65] = "Passive_Burrows", 
+[66] = "Passive_AutoShields", 
+[17] = "Brute_PhaseShot", 
+[68] = "Passive_Boosters", 
+[69] = "Passive_Medical", 
+[70] = "Passive_FriendlyFire", 
+[18] = "Brute_Sniper", 
+[72] = "Passive_CritDefense", 
+[19] = "Brute_Shockblast", 
+[5] = "Prime_RightHook", 
+[20] = "Brute_Beetle", 
+[21] = "Brute_Unstable", 
+[22] = "Brute_Heavyrocket", 
+[23] = "Brute_Splitshot", 
+[6] = "Prime_RocketPunch", 
+[24] = "Brute_Bombrun", 
+[25] = "Brute_Sonic", 
+[26] = "Ranged_Artillerymech", 
+[27] = "Ranged_Defensestrike", 
+[7] = "Prime_Shift", 
+[28] = "Ranged_Rocket", 
+[29] = "Ranged_Ignite", 
+[71] = "Passive_ForceAmp", 
+[67] = "Passive_Psions", 
+[30] = "Ranged_ScatterShot", 
+[63] = "Passive_MassRepair", 
+[47] = "Science_LocalShield" 
+}, 
+["Missions"] = { 
+[6] = { 
+["BonusObjs"] = { 
+}, 
+["TrainLoc"] = Point( 4, 2 ), 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 2, 
+[2] = 2 
+}, 
+["pawn_counts"] = { 
+["Jelly_Armor"] = 1, 
+["Scarab"] = 1, 
+["Leaper"] = 3, 
+["Firefly"] = 3 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 2 
+}, 
+["num_spawns"] = 8, 
+["upgrade_streak"] = 0 
+}, 
+["LiveEnvironment"] = { 
+}, 
+["TrainStopped"] = true, 
+["ID"] = "Mission_Train", 
+["VoiceEvents"] = { 
+}, 
+["Train"] = 137, 
+["PowerStart"] = 5 
+}, 
+[2] = { 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 0, 
+[2] = 1 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 1 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 9, 
+["pawn_counts"] = { 
+["Jelly_Armor"] = 1, 
+["Scarab"] = 3, 
+["Leaper"] = 2, 
+["Firefly"] = 3 
+} 
+}, 
+["AssetId"] = "Str_Power", 
+["BonusObjs"] = { 
+[1] = 3, 
+[2] = 1 
+}, 
+["AssetLoc"] = Point( 3, 6 ), 
+["ID"] = "Mission_Tides", 
+["VoiceEvents"] = { 
+}, 
+["LiveEnvironment"] = { 
+["Index"] = 4, 
+["Planned"] = false 
+}, 
+["PowerStart"] = 5 
+}, 
+[8] = { 
+["BonusObjs"] = { 
+[1] = 1 
+}, 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 3, 
+[2] = 4 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 4 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 6, 
+["pawn_counts"] = { 
+["Firefly"] = 3, 
+["Scarab"] = 1, 
+["Leaper"] = 1, 
+["Jelly_Armor"] = 1 
+} 
+}, 
+["LiveEnvironment"] = { 
+}, 
+["BossID"] = 187, 
+["AssetLoc"] = Point( 1, 1 ), 
+["ID"] = "Mission_FireflyBoss", 
+["VoiceEvents"] = { 
+}, 
+["AssetId"] = "Str_Tower", 
+["PowerStart"] = 6 
+}, 
+[3] = { 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 3, 
+[2] = 3 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 3 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 7, 
+["pawn_counts"] = { 
+["Jelly_Armor"] = 1, 
+["Scarab"] = 1, 
+["Leaper"] = 2, 
+["Firefly"] = 3 
+} 
+}, 
+["LiveEnvironment"] = { 
+}, 
+["BonusObjs"] = { 
+}, 
+["ID"] = "Mission_Tanks", 
+["VoiceEvents"] = { 
+["Activated"] = true 
+}, 
+["Tanks"] = { 
+[1] = 158, 
+[2] = 159 
+}, 
+["PowerStart"] = 5 
+}, 
+[1] = { 
+["BonusObjs"] = { 
+}, 
+["ArtilleryId"] = 142, 
+["SpawnStart"] = { 
+[1] = 3, 
+[2] = 3, 
+[4] = 4, 
+[3] = 4 
+}, 
+["InfiniteSpawn"] = true, 
+["SpawnsPerTurn_Easy"] = { 
+[1] = 2, 
+[2] = 1 
+}, 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 2, 
+[2] = 2 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 2 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 3, 
+["pawn_counts"] = { 
+["Firefly"] = 1, 
+["Leaper"] = 1, 
+["Jelly_Armor"] = 1 
+} 
+}, 
+["LiveEnvironment"] = { 
+}, 
+["BonusPool"] = { 
+[1] = 3, 
+[2] = 4, 
+[4] = 6, 
+[3] = 5 
+}, 
+["SpawnsPerTurn"] = { 
+[1] = 2, 
+[2] = 3 
+}, 
+["ID"] = "Mission_Artillery", 
+["VoiceEvents"] = { 
+}, 
+["DiffMod"] = 1, 
+["SpawnStart_Easy"] = { 
+[1] = 2, 
+[2] = 2, 
+[4] = 3, 
+[3] = 3 
+} 
+}, 
+[4] = { 
+["BonusObjs"] = { 
+[1] = 3, 
+[2] = 1 
+}, 
+["SpawnsPerTurn"] = { 
+[1] = 2, 
+[2] = 3 
+}, 
+["SpawnStart"] = { 
+[1] = 3, 
+[2] = 3, 
+[4] = 4, 
+[3] = 4 
+}, 
+["InfiniteSpawn"] = true, 
+["SpawnsPerTurn_Easy"] = { 
+[1] = 2, 
+[2] = 1 
+}, 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 2, 
+[2] = 2 
+}, 
+["pawn_counts"] = { 
+["Leaper"] = 1, 
+["Scarab"] = 2 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 2 
+}, 
+["num_spawns"] = 3, 
+["upgrade_streak"] = 0 
+}, 
+["LiveEnvironment"] = { 
+["Locations"] = { 
+}, 
+["Planned"] = { 
+} 
+}, 
+["AssetId"] = "Str_Nimbus", 
+["AssetLoc"] = Point( 1, 2 ), 
+["ID"] = "Mission_Airstrike", 
+["VoiceEvents"] = { 
+}, 
+["BonusPool"] = { 
+[1] = 3, 
+[2] = 4, 
+[4] = 6, 
+[3] = 5 
+}, 
+["SpawnStart_Easy"] = { 
+[1] = 2, 
+[2] = 2, 
+[4] = 3, 
+[3] = 3 
+} 
+}, 
+[5] = { 
+["BonusObjs"] = { 
+[1] = 5, 
+[2] = 1 
+}, 
+["BlockedSpawns"] = 5, 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 2, 
+[2] = 3 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 3 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 12, 
+["pawn_counts"] = { 
+["Jelly_Armor"] = 1, 
+["Scarab"] = 5, 
+["Firefly"] = 3, 
+["Leaper"] = 3, 
+["Jelly_Explode"] = 5 
+} 
+}, 
+["LiveEnvironment"] = { 
+}, 
+["MineCount"] = 8, 
+["AssetLoc"] = Point( 2, 4 ), 
+["ID"] = "Mission_Mines", 
+["VoiceEvents"] = { 
+}, 
+["AssetId"] = "Str_Bar", 
+["PowerStart"] = 5 
+}, 
+[7] = { 
+["BonusObjs"] = { 
+[1] = 1 
+}, 
+["Target"] = 184, 
+["LiveEnvironment"] = { 
+}, 
+["SpawnStart"] = { 
+[1] = 3, 
+[2] = 3, 
+[4] = 4, 
+[3] = 4 
+}, 
+["InfiniteSpawn"] = true, 
+["SpawnsPerTurn_Easy"] = { 
+[1] = 2, 
+[2] = 1 
+}, 
+["Spawner"] = { 
+["curr_weakRatio"] = { 
+[1] = 2, 
+[2] = 3 
+}, 
+["curr_upgradeRatio"] = { 
+[1] = 0, 
+[2] = 3 
+}, 
+["upgrade_streak"] = 0, 
+["num_spawns"] = 2, 
+["pawn_counts"] = { 
+["Jelly_Armor"] = 1, 
+["Firefly"] = 1 
+} 
+}, 
+["AssetId"] = "Str_Battery", 
+["SpawnsPerTurn"] = { 
+[1] = 2, 
+[2] = 3 
+}, 
+["AssetLoc"] = Point( 1, 2 ), 
+["ID"] = "Mission_Volatile", 
+["VoiceEvents"] = { 
+}, 
+["BonusPool"] = { 
+[1] = 3, 
+[2] = 4, 
+[4] = 6, 
+[3] = 5 
+}, 
+["SpawnStart_Easy"] = { 
+[1] = 2, 
+[2] = 2, 
+[4] = 3, 
+[3] = 3 
+} 
+} 
+}, 
+["Bosses"] = { 
+[1] = "Mission_FireflyBoss", 
+[2] = "Mission_HornetBoss", 
+[4] = "Mission_BeetleBoss", 
+[3] = "Mission_BotBoss" 
+}, 
+["PodDeck"] = { 
+[7] = { 
+["cores"] = 1, 
+["pilot"] = "random" 
+}, 
+[1] = { 
+["cores"] = 1 
+}, 
+[2] = { 
+["cores"] = 1 
+}, 
+[4] = { 
+["cores"] = 1, 
+["weapon"] = "random" 
+}, 
+[8] = { 
+["cores"] = 1, 
+["pilot"] = "random" 
+}, 
+[9] = { 
+["cores"] = 1, 
+["pilot"] = "random" 
+}, 
+[5] = { 
+["cores"] = 1, 
+["weapon"] = "random" 
+}, 
+[3] = { 
+["cores"] = 1 
+}, 
+[6] = { 
+["cores"] = 1, 
+["weapon"] = "random" 
+} 
+}, 
+["PilotDeck"] = { 
+[7] = "Pilot_Hotshot", 
+[1] = "Pilot_Original", 
+[2] = "Pilot_Soldier", 
+[4] = "Pilot_Warrior", 
+[8] = "Pilot_Genius", 
+[9] = "Pilot_Recycler", 
+[5] = "Pilot_Aquatic", 
+[10] = "Pilot_Assassin", 
+[3] = "Pilot_Youth", 
+[6] = "Pilot_Medic", 
+[11] = "Pilot_Leader" 
+}, 
+["Enemies"] = { 
+[1] = { 
+[6] = "Spider", 
+[2] = "Firefly", 
+[3] = "Leaper", 
+[1] = "Scarab", 
+[4] = "Jelly_Armor", 
+[5] = "Beetle", 
+["island"] = 1 
+}, 
+[2] = { 
+[6] = "Burrower", 
+[2] = "Scorpion", 
+[3] = "Firefly", 
+[1] = "Hornet", 
+[4] = "Jelly_Health", 
+[5] = "Centipede", 
+["island"] = 2 
+}, 
+[4] = { 
+[6] = "Spider", 
+[2] = "Firefly", 
+[3] = "Hornet", 
+[1] = "Leaper", 
+[4] = "Jelly_Regen", 
+[5] = "Crab", 
+["island"] = 4 
+}, 
+[3] = { 
+[6] = "Digger", 
+[2] = "Scorpion", 
+[3] = "Scarab", 
+[1] = "Hornet", 
+[4] = "Jelly_Explode", 
+[5] = "Blobber", 
+["island"] = 3 
+} 
+} 
+}
+
+ 
+
+SquadData = {
+["money"] = 8, ["cores"] = 0, ["bIsFavor"] = false, ["repairs"] = 0, ["CorpReward"] = {CreateEffect({weapon = "Prime_Smash",}), CreateEffect({pilot = "Pilot_Miner",}), CreateEffect({power = 2,}), },
+["RewardClaimed"] = false, 
+
+
+["pawn0"] = {["type"] = "ElectricMech", ["name"] = "", ["id"] = 0, ["mech"] = true, ["offset"] = 3, 
+["reactor"] = {["iNormalPower"] = 0, ["iUsedPower"] = 3, ["iBonusPower"] = 0, ["iUsedBonus"] = 1, ["iUndoPower"] = 0, ["iUsedUndo"] = 0, },
+["movePower"] = {0, },
+["healthPower"] = {1, },
+["primary"] = "Prime_Lightning", ["primary_power"] = {1, 1, },
+["primary_power_class"] = false, ["primary_mod1"] = {2, },
+["primary_mod2"] = {0, 0, 0, },
+["primary_uses"] = 1, ["primary_damaged"] = false, ["primary_starting"] = true, ["pilot"] = {["id"] = "Pilot_Repairman", ["name"] = "Harold Schmidt", ["name_id"] = "Pilot_Repairman_Name", ["renamed"] = false, ["skill1"] = 3, ["skill2"] = 1, ["exp"] = 50, ["level"] = 2, ["travel"] = 1, ["final"] = 1, ["starting"] = true, ["last_end"] = 1, },
+["iTeamId"] = 1, ["iFaction"] = 0, ["health"] = 5, ["max_health"] = 5, ["iOwner"] = 0, },
+
+
+["pawn1"] = {["type"] = "WallMech", ["name"] = "", ["id"] = 1, ["mech"] = true, ["offset"] = 3, 
+["reactor"] = {["iNormalPower"] = 0, ["iUsedPower"] = 0, ["iBonusPower"] = 0, ["iUsedBonus"] = 0, ["iUndoPower"] = 0, ["iUsedUndo"] = 0, },
+["movePower"] = {0, },
+["healthPower"] = {0, },
+["primary"] = "Brute_Grapple", ["primary_power"] = {},
+["primary_power_class"] = false, ["primary_mod1"] = {0, },
+["primary_mod2"] = {0, },
+["primary_uses"] = 1, ["primary_damaged"] = false, ["primary_starting"] = true, ["secondary"] = "Support_Force", ["secondary_power"] = {},
+["secondary_power_class"] = false, ["secondary_mod1"] = {0, },
+["secondary_mod2"] = {0, },
+["secondary_uses"] = 0, ["secondary_damaged"] = false, ["secondary_starting"] = true, ["pilot"] = {["id"] = "Pilot_Pinnacle", ["name"] = "Zera", ["name_id"] = "", ["renamed"] = false, ["skill1"] = 0, ["skill2"] = 1, ["exp"] = 14, ["level"] = 0, ["travel"] = 0, ["final"] = 0, ["starting"] = true, },
+["iTeamId"] = 1, ["iFaction"] = 0, ["health"] = 3, ["max_health"] = 3, ["iOwner"] = 1, },
+
+
+["pawn2"] = {["type"] = "RockartMech", ["name"] = "", ["id"] = 2, ["mech"] = true, ["offset"] = 3, 
+["reactor"] = {["iNormalPower"] = 0, ["iUsedPower"] = 1, ["iBonusPower"] = 0, ["iUsedBonus"] = 0, ["iUndoPower"] = 0, ["iUsedUndo"] = 0, },
+["movePower"] = {0, },
+["healthPower"] = {0, },
+["primary"] = "Ranged_Rockthrow", ["primary_power"] = {1, },
+["primary_power_class"] = false, ["primary_mod1"] = {0, 0, },
+["primary_mod2"] = {0, },
+["primary_uses"] = 1, ["primary_damaged"] = false, ["primary_starting"] = true, ["pilot"] = {["id"] = "Pilot_Archive", ["name"] = "Maria Prieto", ["name_id"] = "", ["renamed"] = false, ["skill1"] = 1, ["skill2"] = 2, ["exp"] = 23, ["level"] = 0, ["travel"] = 0, ["final"] = 0, ["starting"] = true, },
+["iTeamId"] = 1, ["iFaction"] = 0, ["health"] = 2, ["max_health"] = 2, ["iOwner"] = 2, },
+
+
+["storage_size"] = 3, ["CorpStore"] = {CreateEffect({weapon = "Brute_Shrapnel",money = -1,}), CreateEffect({weapon = "Support_Repair",money = -1,}), CreateEffect({weapon = "DeploySkill_AcidTank",money = -1,}), CreateEffect({weapon = "Science_FreezeBeam",money = -1,}), CreateEffect({money = -3,stock = -1,cores = 1,}), CreateEffect({money = -1,power = 1,stock = -1,}), },
+["store_undo_size"] = 0, }
+ 
+

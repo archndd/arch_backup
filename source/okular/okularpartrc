@@ -1,0 +1,7 @@
+[Dlg Accessibility]
+RecolorBackground=244,236,216
+RecolorForeground=95,70,54
+
+[Document]
+ChangeColors=true
+RenderMode=Recolor

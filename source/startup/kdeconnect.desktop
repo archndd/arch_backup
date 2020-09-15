@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=kdeconnect-indicator
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Kde Connect
+Name=Kde Connect
+Comment[en_US]=Kde Connect
+Comment=Kde Connect

@@ -1,0 +1,68 @@
+
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 133
+    lines: 34
+
+background_opacity: 0.95
+draw_bold_text_with_bright_colors: true
+
+colors:
+  # Default colors
+  primary:
+    background: '#30343F'
+    foreground: '#C5D0DD'
+
+  # Normal colors
+  normal:
+    black:   '#272A33'
+    red:     '#D84655'
+    green:   '#8AAB6E'
+    yellow:  '#E2B75F'
+    blue:    '#5F88B0'
+    magenta: '#9F7097'
+    cyan:    '#6ADCB9'
+    white:   '#C5D0DD'
+
+  # Bright colors
+  bright:
+    black:   '#30343F'
+    red:     '#FF717D'
+    green:   '#A3BD8D'
+    yellow:  '#EACB8B'
+    blue:    '#80A1C0'
+    magenta: '#B38EAD'
+    cyan:    '#93E6CC'
+    white:   '#E5EAF0'
+
+
+font:
+  normal:
+    family: Source Code Pro
+    style: Regular
+
+  bold:
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  italic:
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+  size: 13.0
+  offset:
+    x: 0
+    y: 2
+
+selection:
+  save_to_clipboard: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+
