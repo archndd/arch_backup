@@ -167,6 +167,7 @@ pip install wget
 pip install mutagen
 pip install pynvim
 pip install python-language-server[all]
+pip install pybluez
 # }}}
 # {{{ Neovim
 messout "nvim" info
@@ -197,3 +198,8 @@ add_string_to_file "00 12 * * * $(which tmpwatch) 7d ${HOME}/.tmp" "$cron"
 # add_string_to_file "$string" "$cron"
 # }}}
 add_string_to_file "00 12 * * * $(which python3) ${HOME}/tiki_price/gather_data.py" "$cron"
+
+# Bluetooth headset battery status
+git clone https://github.com/TheWeirdDev/Bluetooth_Headset_Battery_Level
+sudo chmod +x ./Bluetooth_Headset_Battery_Level/bluetooth_battery.py
+

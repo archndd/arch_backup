@@ -7,6 +7,7 @@ import os, sys
 import time
 import argparse
 import requests
+import shutil
 
 # TODO error handle 
 
@@ -23,7 +24,7 @@ class Downloader():
         self.song_name = "{artist} - {title}.mp3".format(artist=self.name[1], title=self.name[0])
         self.song_path = os.path.join(self.sdir, self.song_name)
         self.pos = pos - 1
-        song_list.append(self.song_path)
+        song_list.append(self.song_name)
 
     def change_metadata(self):
         audio = EasyID3(self.song_path)
@@ -159,9 +160,17 @@ def delete_song(song_dir, song_list):
     for file in os.listdir(song_dir):
         if file.endswith(".mp3"):
             file_path = os.path.join(song_dir, file)
-            if file_path not in song_list:
+            if file not in song_list:
                 os.remove(file_path)
                 print('\033[1;36m' + "Delete {}".format(os.path.basename(file_path)) + '\033[1;36m')
+
+def copy(from_dir, end_dir):
+    end_dir_file = os.listdir(end_dir)
+    for file in os.listdir(from_dir):
+        if file.endswith(".mp3"):
+            file_path = os.path.join(from_dir, file)
+            if file not in end_dir_file:
+                shutil.copyfile(file_path, os.path.join(end_dir, file))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A small script to download songs")
@@ -173,6 +182,8 @@ if __name__ == "__main__":
         log_file = open("log", 'a')
     else:
         log_file = open("log", 'w')
+
+    os.system("sudo jmtpfs -o allow_other /mnt")
 
     song_list = []
     default_downloader = DefaultDownloader(my_parse.song_dir, log_file, my_parse.r)
@@ -191,6 +202,10 @@ if __name__ == "__main__":
                 download_song(s[0], s[1], pos)
     delete_song(my_parse.song_dir, song_list)
 
+    path = r"/mnt/Internal shared storage/Music/Music"
+    delete_song(path, song_list)
+    copy(my_parse.song_dir, path)
+
     song_list = []
     new_dir = os.path.join(os.environ["HOME"], "PhoneMusic")
     default_downloader.sdir = new_dir
@@ -207,3 +222,8 @@ if __name__ == "__main__":
 
                 download_song(s[0], s[1], pos)
     delete_song(new_dir, song_list)
+
+    path = r"/mnt/Internal shared storage/Music/PhoneMusic"
+    delete_song(path, song_list)
+    copy(new_dir, path)
+
