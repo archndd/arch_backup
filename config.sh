@@ -133,9 +133,6 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ bold-is-bright false
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ foreground-color 'rgb(229,229,229)'
 # }}}
-# Alacritty
-mkdir -v ~/.config/alacritty
-cp ./source/alacritty.yml ~/.config/alacritty
 {{{ Desktop environment
 messout "Xfce4" info
 mkdir -p ~/xfwm
