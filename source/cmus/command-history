@@ -1,8 +1,11 @@
+update
 add ~/Music/
+q
+clear
+add ~/Music
 set lib_sort=albumartist date album discnumber tracknumber title filename play_count
 set lib_sort=play_count albumartist date album discnumber tracknumber title filename play_count
 add ~/Musescore/
-q
 set color_titleline_bg=magenta
 set color_titleline_bg=megenta
 set color_titleline_bg=red
@@ -24,9 +27,7 @@ save hello
 save "newplaylist"
 save new
 update-cache
-clear
 add ~/Music/Biru Baru - Pluto.mp3
-update
 cache
 filter
 update-command
@@ -115,4 +116,3 @@ bind -f common + vol +5%
 bind -f common - vol -5%
 filter 
 shell 
-add ~/Music

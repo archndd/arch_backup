@@ -1,4 +1,5 @@
 alias nv="nvim"
+alias journalctl="grc journalctl"
 alias mkd="mkdir -pv"
 alias ls="ls -chN --color=auto --group-directories-first --time-style=\"+%H:%M %d-%m-%Y\""
 alias SS="sudo systemctl"
@@ -24,4 +25,4 @@ alias chs="bluetoothctl connect FC:58:FA:15:E0:3C"
 alias sl="nvim ~/basic_setup/song_manager/song_list"
 alias update_song="python3 ~/basic_setup/song_manager/main.py"
 alias ncard="optimus-manager --switch nvidia --no-confirm && gnome-session-quit --no-prompt"
-
+# alias fzf="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"

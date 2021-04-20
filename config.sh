@@ -102,16 +102,13 @@ done
 cp ./source/firefox/userContent.css ~/.mozilla/firefox/*.default-release/chrome
 # }}}
 # {{{ Documents
-cp ./source/Documents ~ -r
+# cp ./source/Documents ~ -r
 # }}}
 # {{{ Touchpad and Usb autosuspend
 messout "Touchpad" info
 sudo cp ./source/devices/touchpad /etc/X11/xorg.conf.d/40-libinput.conf
 sudo chmod +r /etc/X11/xorg.conf.d/40-libinput.conf
 
-messout "Usb autosuspend" info
-sudo cp ./source/devices/usb_autosuspend /etc/udev/rules.d/50-usb_power_save.rules
-sudo chmod +r /etc/udev/rules.d/50-usb_power_save.rules
 # }}}
 # {{{ Gnome terminal
 messout "Gnome terminal" info
@@ -139,7 +136,7 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 # Alacritty
 mkdir -v ~/.config/alacritty
 cp ./source/alacritty.yml ~/.config/alacritty
-# {{{ Desktop environment
+{{{ Desktop environment
 messout "Xfce4" info
 mkdir -p ~/xfwm
 mkdir -p ~/gtktheme
@@ -180,7 +177,7 @@ cp ./source/nvim/init.vim ~/.config/nvim
 nvim +PlugInstall +qall
 
 # TODO insert pylint, config pylint
-nvim +"CocInstall coc-python coc-sh coc-css coc-json coc-clangs coc-html coc-fzf-preview" +qall
+nvim +"CocInstall coc-python coc-sh coc-css coc-json coc-clangs coc-html coc-fzf-preview coc-tsserver" +qall
 # }}}
 #{{{ Change tmp dir
 mkdir -p /.tmp

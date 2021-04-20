@@ -30,9 +30,14 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 let g:livepreview_previewer = 'okular'
  
 """"" UTILITY
+" Syntax highlight
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-python/python-syntax'
+let g:python_highlight_all = 1
+" Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lambdalisue/suda.vim'
+" Tmux stuff
 Plug 'benmills/vimux'
 let g:VimuxPromptString="> "
 let g:VimuxOrientation = "h"
@@ -41,6 +46,19 @@ Plug 'christoomey/vim-tmux-navigator'
 "
 call plug#end()
 " }}}
+" {{{ C++
+" c++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_c_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+" The following two lines are optional. Configure it to your liking!
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
 " {{{ NERDTree
 nnoremap <A-e> :NERDTreeToggle<CR>
 "}}}
@@ -169,6 +187,11 @@ let g:fzf_colors =
 set autoindent
 set expandtab
 set shiftwidth=4 tabstop=4
+augroup scm_indent
+    autocmd!
+    autocmd BufNewFile,BufRead *.scm setlocal shiftwidth=2 tabstop=2
+augroup END
+
 set shiftround
 set smarttab
 " }}}
@@ -253,6 +276,7 @@ endif
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+autocmd BufNewFile,BufRead *.s,*.asm :set filetype=asm
 autocmd FileType python iabbrev ifname: if __name__ == "__main__":
 " {{{ English Contractions
 let g:contractions = [["arent", "aren't"], ["cant", "can't"], ["couldnt", "couldn't"], ["couldve", "could've"], ["didnt", "didn't"], ["doesnt", "doesn't"], ["dont", "don't"], ["hadnt", "hadn't"], ["hasnt", "hasn't"], ["havent", "haven't"], ["hed", "he'd"], ["hes", "he's"], ["Im", "I'm"], ["Ive", "I've"], ["isnt", "isn't"], ["itd", "it'd"],  ["itll", "it'll"], ["mightnt", "mightn't"], ["mightve", "might've"], ["mustnt", "mustn't"], ["mustve", "must've"], ["neednt", "needn't"], ["oughtnt", "oughtn't"], ["shes", "she's"], ["shouldnt", "shouldn't"], ["shouldve", "should've"], ["thatd", "that'd"], ["thats", "that's"], ["thered", "there'd"], ["therell", "there'll"], ["theres", "there's"], ["theyd", "they'd"], ["theyll", "they'll"], ["theyre", "they're"], ["theyve", "they've"], ["wasnt", "wasn't"], ["weve", "we've"], ["werent", "weren't"], ["wont", "won't"], ["wouldnt", "wouldn't"], ["wouldve", "would've"], ["youd", "you'd"], ["youll", "you'll"], ["youre", "you're"], ["youve", "you've"]]
@@ -333,6 +357,9 @@ nnoremap <leader>= z=
 
 " Swap song name and artist
 vnoremap <leader>sw :s/\(.*\) - \(.*\)/\2 - \1<CR>:noh<CR>$
+
+" Capitalize each word
+vnoremap <leader>su gugv:s/\<./\u&/g<CR>:noh<CR>$
 
 " FZF
 nnoremap <A-r> :Rg<CR>

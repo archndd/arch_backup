@@ -27,7 +27,7 @@ function install_everything(){
 function make_pacman_look_good() {
     # Make pacman and yay colorful and adds eye candy on the progress bar because why not.
     grep "^Color" /etc/pacman.conf >/dev/null || sed -i "s/^#Color$/Color/" /etc/pacman.conf
-    grep "ILoveCandy" /etc/pacman.conf >/dev/null || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+    grep "ILoveCandy" /etc/pacman.conf >/dev/null || sed -i "/#VerbosePkgLists/ILoveCandy" /etc/pacman.conf
 }
 
 # For 32bit things

@@ -38,14 +38,23 @@ function ask_username(){
 function add_new_user() {
     messout "Adding user" header
     ask_username
-    useradd -m -G wheel -s /bin/bash $username
+    messout "Add user: " header
+    confirm
+    case $choice in
+        y ) useradd -G wheel -s /bin/bash $username;;
+    esac
 
-    passwd $username
-    while [ $? -ne 0 ]
-    do
-        messout "Please enter right password" caution
-        passwd $username
-    done
+    messout "Add password" header
+    confirm
+    case $choice in
+        y ) passwd $username
+            while [ $? -ne 0 ]
+            do
+                messout "Please enter right password" caution
+                passwd $username
+            done
+            ;;
+    esac
 }
 
 function network_config() {

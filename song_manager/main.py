@@ -82,8 +82,8 @@ class DefaultDownloader(Downloader):
     
     def download(self):
         print('\033[1;33m' + self.song_name + '\033[0m')
-        # os.system("wget -O \"{}\" {}".format(self.song_path, self.dlink))
-        os.system("wget -O \"{}\" {} 1>/dev/null 2>&1".format(self.song_path, self.dlink))
+        os.system("wget -O \"{}\" {}".format(self.song_path, self.dlink))
+        # os.system("wget -O \"{}\" {} 1>/dev/null 2>&1".format(self.song_path, self.dlink))
 
 
 class YoutubeDownloader(Downloader):
@@ -143,7 +143,6 @@ class YoutubeDownloader(Downloader):
             except youtube_dl.DownloadError as error:
                 print("Error", error)
 
-
 def download_song(song_name, tag, pos):
     if not tag:
         default_downloader.manage(song_name, pos)
@@ -157,20 +156,21 @@ def download_song(song_name, tag, pos):
         youtube_downloader.manage_link(song_name, pos)
 
 def delete_song(song_dir, song_list):
-    for file in os.listdir(song_dir):
-        if file.endswith(".mp3"):
-            file_path = os.path.join(song_dir, file)
-            if file not in song_list:
-                os.remove(file_path)
-                print('\033[1;36m' + "Delete {}".format(os.path.basename(file_path)) + '\033[1;36m')
+    for file_name in os.listdir(song_dir):
+        if file_name.endswith(".mp3"):
+            file_name_path = os.path.join(song_dir, file_name)
+            if file_name not in song_list:
+                os.remove(file_name_path)
+                print('\033[1;36m' + "Delete {}".format(file_name) + '\033[1;36m')
 
 def copy(from_dir, end_dir):
-    end_dir_file = os.listdir(end_dir)
-    for file in os.listdir(from_dir):
-        if file.endswith(".mp3"):
-            file_path = os.path.join(from_dir, file)
-            if file not in end_dir_file:
-                shutil.copyfile(file_path, os.path.join(end_dir, file))
+    end_dir_file_name = os.listdir(end_dir)
+    for file_name in os.listdir(from_dir):
+        if file_name.endswith(".mp3"):
+            file_name_path = os.path.join(from_dir, file_name)
+            if file_name not in end_dir_file_name:
+                shutil.copyfile(file_name_path, os.path.join(end_dir, file_name))
+                print('\033[1;33m' + "Copy {}".format(file_name) + '\033[1;33m')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A small script to download songs")
@@ -183,7 +183,9 @@ if __name__ == "__main__":
     else:
         log_file = open("log", 'w')
 
+    os.system("sudo umount /mnt")
     os.system("sudo jmtpfs -o allow_other /mnt")
+    print('\033[1;36m' + "DONE" + '\033[1;36m')
 
     song_list = []
     default_downloader = DefaultDownloader(my_parse.song_dir, log_file, my_parse.r)
@@ -204,6 +206,7 @@ if __name__ == "__main__":
 
     path = r"/mnt/Internal shared storage/Music/Music"
     delete_song(path, song_list)
+    # Copy to phone
     copy(my_parse.song_dir, path)
 
     song_list = []
@@ -223,7 +226,8 @@ if __name__ == "__main__":
                 download_song(s[0], s[1], pos)
     delete_song(new_dir, song_list)
 
-    path = r"/mnt/Internal shared storage/Music/PhoneMusic"
+    path = r"/mnt/Internal shared storage/Music/Long one"
     delete_song(path, song_list)
+    # copy to phone
     copy(new_dir, path)
 
