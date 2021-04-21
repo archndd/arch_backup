@@ -18,6 +18,7 @@ cp ./source/bash_config/bashrc ~/.bashrc
 cp ./source/bash_config/xprofile ~/.xprofile
 cp ./source/bash_config/bash_aliases ~/.bash_aliases
 cp ./source/bash_config/zshrc ~/.zshrc
+cp ./source/bash_config/profile ~/.profile
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/tmux-resurrect/
 git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/tmux-yank/
 cp ./source/bash_config/tmux.conf ~/.tmux.conf
@@ -71,11 +72,6 @@ echo -e "${GREEN}${BOLD}Fix the fucking tearing problem that made me want to kil
 add_string_to_file "options nvidia-drm modeset=1" /etc/modprobe.d/nvidia-drm-nomodeset.conf
 sudo update-initramfs -u
 # }}}
-# {{{ Autostartup App
-messout "Add startup application: Firefox Terminal Pomodoro" info
-mkdir -p ~/.config/autostart
-cp ./source/startup/* ~/.config/autostart
-# }}}
 # {{{ Background
 sudo mkdir -p /usr/share/backgrounds/$USER
 cp ./source/backgrounds/* ~/Pictures
@@ -110,6 +106,18 @@ sudo cp ./source/devices/touchpad /etc/X11/xorg.conf.d/40-libinput.conf
 sudo chmod +r /etc/X11/xorg.conf.d/40-libinput.conf
 
 # }}}
+# {{{ i3
+messout "i3"
+mkdir -p ~/.config/i3
+cp ./source/i3/config ~/.config/i3
+# }}}
+# {{{ urxvt
+messout "urxvt"
+cp ./source/Xresources ~/.Xresources
+# }}}
+# {{{ Polybar
+mkdir -p .config/polybar
+# }}}
 # {{{ Gnome terminal
 messout "Gnome terminal" info
 gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 13'
@@ -133,25 +141,23 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ bold-is-bright false
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ foreground-color 'rgb(229,229,229)'
 # }}}
-{{{ Desktop environment
-messout "Xfce4" info
-mkdir -p ~/xfwm
-mkdir -p ~/gtktheme
-git clone https://github.com/addy-dclxvi/gtk-theme-collections ~/gtktheme
-git clone https://github.com/addy-dclxvi/Xfwm4-Theme-Collections ~/xfwm
-
-mkdir -p ~/.themes
-cp ~/gtktheme/* ~/.themes -r
-cp ~/xfwm/* ~/.themes -r
-sudo rm ~/xfwm ~/gtktheme -R
+# {{{ GTK
+git clone https://github.com/vinceliuice/vimix-icon-theme
+git clone https://github.com/vinceliuice/vimix-gtk-themes
+cd ./vimix-gtk-themes
+sh ./install.sh -a
+cd ..
+rm -rf ./vimix-gtk-themes 
+cd vimix-icon-theme
+sh ./install.sh Doder
+cd ..
+rm -rf ./vimix-icon-theme
 
 mkdir -p ~/.config/gtk-3.0
 cp ./desktop_environment/gtk.css ~/.config/gtk-3.0/gtk.css
-source ./desktop_environment/xfce.sh
 # }}}
-# {{{ Thunar, Anki, vimwiki
+# {{{ Thunar, vimwiki
 cp ./source/thunar/uca.xml ~/.config/Thunar
-cp ./source/Anki2 ~/.local/share -r
 cp ./source/vimwiki ~ -r
 cp ./source/cmus ~/.config -r
 # }}}
@@ -191,9 +197,5 @@ sudo chmod 600 $cron
 add_string_to_file "00 12 * * * $(which tmpwatch) 7d ${HOME}/.tmp" "$cron"
 # add_string_to_file "$string" "$cron"
 # }}}
-add_string_to_file "00 12 * * * $(which python3) ${HOME}/tiki_price/gather_data.py" "$cron"
-
-# Bluetooth headset battery status
-git clone https://github.com/TheWeirdDev/Bluetooth_Headset_Battery_Level
-sudo chmod +x ./Bluetooth_Headset_Battery_Level/bluetooth_battery.py
+# add_string_to_file "00 12 * * * $(which python3) ${HOME}/tiki_price/gather_data.py" "$cron"
 
