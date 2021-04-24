@@ -2,6 +2,7 @@ source ./utility.sh
 
 sudo systemctl enable NetworkManager
 sudo systemctl enable cronie
+sudo systemctl enable geoclue
 # Create default user folder such as Music Picutres
 xdg-user-dirs-update
 # {{{ Ibus
@@ -23,24 +24,6 @@ git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/tmux-resurrect/
 git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/tmux-yank/
 cp ./source/bash_config/tmux.conf ~/.tmux.conf
 sudo usermod --shell /usr/bin/zsh $USER
-# }}}
-# {{{ Pomodoro user idle 
-messout "Pomodoro" info
-sudo chmod 755 ./source/script/* 
-sudo cp ./source/script/* /usr/bin --preserve=mode
-
-dconf write /org/gnome/pomodoro/plugins/actions/action0/command "'start_pomodoro.sh'"
-dconf write /org/gnome/pomodoro/plugins/actions/action0/name "'Start'"
-dconf write /org/gnome/pomodoro/plugins/actions/action0/states "['short-break', 'long-break']"
-dconf write /org/gnome/pomodoro/plugins/actions/action0/triggers "['complete']"
-
-dconf write /org/gnome/pomodoro/plugins/actions/action1/command "'bring_to_top.sh'"
-dconf write /org/gnome/pomodoro/plugins/actions/action1/name "'bring'"
-dconf write /org/gnome/pomodoro/plugins/actions/action1/states "['short-break', 'long-break']"
-dconf write /org/gnome/pomodoro/plugins/actions/action1/triggers "['start']"
-
-gsettings set org.gnome.pomodoro.plugins.actions actions-list "['/org/gnome/pomodoro/plugins/actions/action0/', '/org/gnome/pomodoro/plugins/actions/action1/']"
-gsettings set org.gnome.pomodoro.preferences enabled-plugins "['sounds', 'actions']"
 # }}}
 # {{{ Connection
 messout "Enable firewall" info
@@ -100,7 +83,7 @@ cp ./source/firefox/userContent.css ~/.mozilla/firefox/*.default-release/chrome
 # {{{ Documents
 # cp ./source/Documents ~ -r
 # }}}
-# {{{ Touchpad and Usb autosuspend
+# {{{ Touchpad 
 messout "Touchpad" info
 sudo cp ./source/devices/touchpad /etc/X11/xorg.conf.d/40-libinput.conf
 sudo chmod +r /etc/X11/xorg.conf.d/40-libinput.conf
@@ -117,29 +100,15 @@ cp ./source/Xresources ~/.Xresources
 # }}}
 # {{{ Polybar
 mkdir -p .config/polybar
+cp ./source/config/polybar ~/.config/polybar
 # }}}
-# {{{ Gnome terminal
-messout "Gnome terminal" info
-gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 13'
-terminal_name="$(gsettings get org.gnome.Terminal.ProfilesList default)"
-terminal_name=":${terminal_name:1:${#terminal_name}-2}"
-gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ visible-name 'Duy'
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ audible-bell false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ palette "['rgb(39,42,51)', 'rgb(216,70,85)', 'rgb(138,171,110)', 'rgb(226,183,95)', 'rgb(95,136,176)', 'rgb(159,112,151)', 'rgb(106,220,185)', 'rgb(197,208,221)', 'rgb(48,52,63)', 'rgb(255,113,125)', 'rgb(163,189,141)', 'rgb(234,203,139)', 'rgb(128,161,192)', 'rgb(179,142,173)', 'rgb(147,230,204)', 'rgb(229,234,240)']"
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ bold-is-bright true
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ background-transparency-percent 5
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ use-transparent-background true
-
-# Font
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ cell-height-scale 1.05
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ default-size-columns 133
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ default-size-rows 34
-# Color scheme
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ background-color 'rgb(42,42,42)'
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ bold-color-same-as-fg true
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ bold-is-bright false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/${terminal_name}/ foreground-color 'rgb(229,229,229)'
+# {{{ picom
+mkdir -p ~/.config/picom
+cp ./source/picom/picom.conf ~/.config/picom
+# }}}
+# {{{ Redshift
+mkdir -p ~/.config/redshift
+cp ./source/redshift/redshift.conf ~/.config/redshift
 # }}}
 # {{{ GTK
 git clone https://github.com/vinceliuice/vimix-icon-theme

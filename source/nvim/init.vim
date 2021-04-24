@@ -3,8 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 """"" COLORSCHEME
 Plug 'joshdick/onedark.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'itchyny/lightline.vim'
-let g:onedark_terminal_italics=1
 
 """"" Mosly for PROPRAMMING
 Plug 'preservim/nerdtree'
@@ -151,20 +151,12 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " }}}
 " {{{ Colorscheme
-if (has("autocmd") && !has("gui_running"))
-  augroup colorset
-    autocmd!
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-  augroup END
-endif
-if (has("termguicolors"))
-    set termguicolors
-endif
-colorscheme onedark 
-let g:lightline = {'colorscheme': 'onedark'}
-set background=dark
+set termguicolors
 set t_Co=256
+colorscheme material
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+let g:lightline = { 'colorscheme': 'material_vim' }
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Todo', 'yoffset': 0.2, 'border': 'sharp' } }

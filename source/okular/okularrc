@@ -5,20 +5,20 @@ Width 1920=606
 
 [Desktop Entry]
 FullScreen=false
+shouldShowMenuBarComingFromFullScreen=true
+shouldShowToolBarComingFromFullScreen=true
 
 [MainWindow]
 Height 1080=1025
-RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAAAAB4AAAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAFBv////8AAAAAAAAAAA==
+State=AAAA/wAAAAD9AAAAAAAABHEAAAPOAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAERP////8AAAAAAAAAAA==
 ToolBarsMovable=Disabled
 Width 1920=1920
 Window-Maximized 1024x1280=true
 Window-Maximized 1050x1680=true
-eDP-1 Height 1920x1080=1025
-eDP-1 Width 1920x1080=1920
-eDP-1 Window-Maximized 1920x1080=true
-eDP-1 XPosition 1920x1080=0
-eDP-1 YPosition 1920x1080=55
+eDP-1 Height 1920x1080=1038
+eDP-1 Width 1920x1080=1137
+eDP-1 XPosition 1920x1080=773
+eDP-1 YPosition 1920x1080=10
 eDP-1-1 Height 1920x1080=1025
 eDP-1-1 Width 1920x1080=1920
 eDP-1-1 Window-Maximized 1920x1080=true
@@ -33,8 +33,8 @@ File4[$e]=$HOME/Downloads/Nicholson-OpenLAWA-2019A.pdf
 File5[$e]=$HOME/Downloads/SkienaTheAlgorithmDesignManual.pdf
 File6[$e]=$HOME/Documents/How Not to Die - Michael Greger M.D. and Gene Stone .pdf
 File7[$e]=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2841576/bin/1475-2891-9-3-S1.PDF
-File8[$e]=$HOME/Downloads/Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
-File9[$e]=$HOME/Documents/Lập trình/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
+File8[$e]=$HOME/Documents/Lập trình/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
+File9[$e]=$HOME/Downloads/Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
 Name1[$e]=Aurelius_1464_LFeBk.pdf
 Name2[$e]=sicp.pdf
 Name3[$e]=How to Teach Yourself a Foreign Language.pdf
@@ -42,5 +42,5 @@ Name4[$e]=Nicholson-OpenLAWA-2019A.pdf
 Name5[$e]=SkienaTheAlgorithmDesignManual.pdf
 Name6[$e]=How Not to Die - Michael Greger M.D. and Gene Stone .pdf
 Name7[$e]=1475-2891-9-3-S1.PDF
-Name8[$e]=Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
-Name9[$e]=Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
+Name8[$e]=Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
+Name9[$e]=Computer Systems - A Programmer s Perspective - 3rd Edition.pdf

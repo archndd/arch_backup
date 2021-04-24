@@ -1,0 +1,16 @@
+[redshift]
+temp-day=5700
+temp-night=4000
+
+fade=1
+
+dawn-time=5:30-7:00
+dusk-time=18:35-19:35
+
+location-provider=manual
+
+adjustment-method=randr
+
+[manual]
+lat=10.8
+lon=106.8

@@ -1,10 +1,13 @@
 cp ~/.config/nvim/init.vim ~/basic_setup/source/nvim/init.vim
 cp ~/.tmux.conf ~/basic_setup/source/bash_config/tmux.conf
 
-cp ~/.config/gtk-3.0/* ~/basic_setup/gtk
+cp ~/.config/gtk-3.0/* ~/basic_setup/source/gtk
+cp ~/.config/picom/picom.conf ~/basic_setup/source/picom
+cp ~/.config/polybar/config ~/basic_setup/source/polybar
+cp ~/.config/redshift/redshift.conf ~/basic_setup/source/redshift
 
-cp ~/.config/i3/config ~/basic_setup/source/i3
-cp ~/.Xresources ~/basic_setup/Xresources
+cp ~/.config/i3/* ~/basic_setup/source/i3
+cp ~/.Xresources ~/basic_setup/source/Xresources
 
 cp ~/.bashrc ~/basic_setup/source/bash_config/bashrc
 cp ~/.bash_aliases ~/basic_setup/source/bash_config/bash_aliases
