@@ -162,7 +162,7 @@ def add_to_old_list(old_list_dir, song_list_dir):
                 old_list = reader(old_list_name_something, delimiter=",")
                 found = False
                 for ol in old_list:
-                    if (s[0] == ol[0]):
+                    if (ol and not ol[0].startswith("#") and s[0] == ol[0]):
                         found = True
                         break
 
@@ -170,8 +170,6 @@ def add_to_old_list(old_list_dir, song_list_dir):
                     old_list_name_something.write(','.join(s)+'\n')
 
 if __name__ == "__main__":
-    os.system("sudo umount /mnt")
-    os.system("sudo jmtpfs -o allow_other /mnt")
     print('\033[1;36m' + "DONE" + '\033[1;36m')
 
     song_list = []
@@ -193,33 +191,14 @@ if __name__ == "__main__":
 
                 download_song(s[0], s[1], pos)
     delete_song(song_dir, song_list)
-
-    path = r"/mnt/Internal shared storage/Music/Music"
-    delete_song(path, song_list)
-    # Copy to phone
-    copy(song_dir, path)
-
+    print("add")
     add_to_old_list(os.path.join(dir_path, "old_list"), os.path.join(dir_path, "song_list"))
 
-    # song_list = []
-    # new_dir = os.path.join(os.environ["HOME"], "PhoneMusic")
-    # default_downloader.sdir = new_dir
-    # youtube_downloader.sdir = new_dir 
-    # with open(os.path.join(dir_path, "phone_list")) as file:
-    #     csv_reader = reader(file, delimiter=',')
-    #     for s in csv_reader:
-    #         if s and (not s[0].startswith('#')):
-    #             pos = 1
-    #             if s[1] == 'dl' or s[1] == 'yl':
-    #                 pos = s[2]
-    #             elif s[2]:
-    #                 pos = int(s[2])
-
-    #             download_song(s[0], s[1], pos)
-    # delete_song(new_dir, song_list)
-
-    # path = r"/mnt/Internal shared storage/Music/Long one"
+    # os.system("sudo umount /mnt")
+    # os.system("sudo jmtpfs -o allow_other /mnt")
+    # path = r"/mnt/Internal shared storage/Music/Music"
     # delete_song(path, song_list)
-    # # copy to phone
-    # copy(new_dir, path)
+    # # Copy to phone
+    # copy(song_dir, path)
+
 
