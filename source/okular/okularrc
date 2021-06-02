@@ -1,7 +1,10 @@
 Height 1080=1025
-MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAAl4AAAPaAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAA7EAAAPSAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAADOv////8AAAAAAAAAAA==
 Width 1920=606
+eDP-1 Height 1920x1080=1035
+eDP-1 Width 1920x1080=945
+eDP-1 XPosition 1920x1080=965
+eDP-1 YPosition 1920x1080=10
 
 [Desktop Entry]
 FullScreen=false
@@ -10,37 +13,39 @@ shouldShowToolBarComingFromFullScreen=true
 
 [MainWindow]
 Height 1080=1025
-State=AAAA/wAAAAD9AAAAAAAABHEAAAPOAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAERP////8AAAAAAAAAAA==
+State=AAAA/wAAAAD9AAAAAAAAB2wAAAPLAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAEzv////8AAAAAAAAAAA==
 ToolBarsMovable=Disabled
 Width 1920=1920
 Window-Maximized 1024x1280=true
 Window-Maximized 1050x1680=true
-eDP-1 Height 1920x1080=1038
-eDP-1 Width 1920x1080=1137
-eDP-1 XPosition 1920x1080=773
+eDP-1 Height 1920x1080=1035
+eDP-1 Width 1920x1080=1900
+eDP-1 XPosition 1920x1080=10
 eDP-1 YPosition 1920x1080=10
-eDP-1-1 Height 1920x1080=1025
+eDP-1-1 Height 1920x1080=1080
 eDP-1-1 Width 1920x1080=1920
 eDP-1-1 Window-Maximized 1920x1080=true
-eDP-1-1 XPosition 1920x1080=0
-eDP-1-1 YPosition 1920x1080=55
+eDP-1-1 XPosition 1920x1080=10
+eDP-1-1 YPosition 1920x1080=10
 
 [Recent Files]
 File1[$e]=$HOME/Documents/Aurelius_1464_LFeBk.pdf
+File10[$e]=$HOME/Downloads/Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
 File2[$e]=$HOME/Documents/Lập trình/sicp.pdf
 File3[$e]=$HOME/Documents/How to Teach Yourself a Foreign Language.pdf
-File4[$e]=$HOME/Downloads/Nicholson-OpenLAWA-2019A.pdf
-File5[$e]=$HOME/Downloads/SkienaTheAlgorithmDesignManual.pdf
-File6[$e]=$HOME/Documents/How Not to Die - Michael Greger M.D. and Gene Stone .pdf
-File7[$e]=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2841576/bin/1475-2891-9-3-S1.PDF
-File8[$e]=$HOME/Documents/Lập trình/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
-File9[$e]=$HOME/Downloads/Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
+File4[$e]=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2841576/bin/1475-2891-9-3-S1.PDF
+File5[$e]=$HOME/Documents/How Not to Die - Michael Greger M.D. and Gene Stone .pdf
+File6[$e]=$HOME/Downloads/Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
+File7[$e]=$HOME/Downloads/PRO192_SU2021/PRO192/workshop/Workshop1.pdf
+File8[$e]=$HOME/Downloads/SSG113/Working in Groups 7th Edition.pdf
+File9[$e]=$HOME/Downloads/Steven S. Skiena (auth.) - The algorithm design manual-Springer-Verlag London (2008).pdf
 Name1[$e]=Aurelius_1464_LFeBk.pdf
+Name10[$e]=Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
 Name2[$e]=sicp.pdf
 Name3[$e]=How to Teach Yourself a Foreign Language.pdf
-Name4[$e]=Nicholson-OpenLAWA-2019A.pdf
-Name5[$e]=SkienaTheAlgorithmDesignManual.pdf
-Name6[$e]=How Not to Die - Michael Greger M.D. and Gene Stone .pdf
-Name7[$e]=1475-2891-9-3-S1.PDF
-Name8[$e]=Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf
-Name9[$e]=Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
+Name4[$e]=1475-2891-9-3-S1.PDF
+Name5[$e]=How Not to Die - Michael Greger M.D. and Gene Stone .pdf
+Name6[$e]=Computer Systems - A Programmer s Perspective - 3rd Edition.pdf
+Name7[$e]=Workshop1.pdf
+Name8[$e]=Working in Groups 7th Edition.pdf
+Name9[$e]=Steven S. Skiena (auth.) - The algorithm design manual-Springer-Verlag London (2008).pdf

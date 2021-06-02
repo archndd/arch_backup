@@ -23,7 +23,7 @@ bindsym Mod1+Control+minus exec --no-startup-id playerctl volume 0.05-
 bindsym Mod1+Control+equal exec --no-startup-id playerctl volume 0.05+
 
 bindsym Mod1+Control+c exec --no-startup-id playerctl stop
-bindsym Mod1+Control+s exec --no-startup-id playerctl play
+bindsym Mod1+Control+s exec --no-startup-id playerctl play-pause
 bindsym Mod1+Control+x exec --no-startup-id playerctl pause
 bindsym Mod1+Control+z exec --no-startup-id playerctl previous
 bindsym Mod1+Control+a exec --no-startup-id playerctl next
@@ -34,6 +34,7 @@ bindsym Mod1+Control+a exec --no-startup-id playerctl next
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec_always --no-startup-id feh --bg-scale --randomize $HOME/Pictures
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -48,8 +49,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Alt+F11 and F12 to decrease or increase brightness
 # Because new keyboard doesn't have XF events yet
-bindsym $mod+F11 exec --no-startup-id sudo xbacklight -dec 10
-bindsym $mod+F12 exec --no-startup-id sudo xbacklight -inc 10
+bindsym $mod+F11 exec --no-startup-id sudo xbacklight -dec 5
+bindsym $mod+F12 exec --no-startup-id sudo xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo xbacklight -inc 5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -61,7 +64,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -91,10 +94,10 @@ bindsym $mod+minus split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# # change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -103,7 +106,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # floating window minimum size
-floating_minimum_size 500 x 250
+floating_minimum_size 300 x 150
 
 bindsym $mod+t focus parent
 bindsym $mod+Shift+t focus child
@@ -172,31 +175,32 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bar {
-        colors {
-        background #2f343f
-        statusline #2f343f
-        separator #4b5262
+# bar {
+#         colors {
+#         background #2f343f
+#         statusline #2f343f
+#         separator #4b5262
 
-        # colour of border, background, and text
-        focused_workspace       #2f343f #bf616a #d8dee8
-        active_workspace        #2f343f #2f343f #d8dee8
-        inactive_workspace      #2f343f #2f343f #d8dee8
-        urgent_workspacei       #2f343f #ebcb8b #2f343f
-    }
-    strip_workspace_numbers yes
-    status_command i3status
-}
+#         # colour of border, background, and text
+#         focused_workspace       #2f343f #bf616a #d8dee8
+#         active_workspace        #2f343f #2f343f #d8dee8
+#         inactive_workspace      #2f343f #2f343f #d8dee8
+#         urgent_workspacei       #2f343f #ebcb8b #2f343f
+#     }
+#     strip_workspace_numbers yes
+#     status_command i3status
+# }
+exec_always --no-startup-id sh $HOME/.config/i3/launch.sh
 
 # Go to the previous in workspace by pressing the current workdspace key
 workspace_auto_back_and_forth yes
 
 # autostart
-exec --no-startup-id i3-msg 'workspace $ws1; exec firefox'
 exec i3-sensible-terminal
 exec --no-startup-id "ibus-daemon --xim -d -r"
 exec --no-startup-id "picom -b --config ~/.config/picom/picom.conf"
 exec_always --no-startup-id numlockx 
-exec --no-startup-id redshift-gtk
 exec --no-startup-id i3-msg 'workspace $ws4; exec urxvt -e cmus; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws1; exec firefox'
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
+exec --no-startup-id dunst

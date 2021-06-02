@@ -1,6 +1,282 @@
-[bar/mybar]
-modules-right = date
+# {{{ Colors
+[colors]
+# Palenight colorscheme
+black = #333747
+red = #f07178
+green = #c3e88d
+yellow = #ffcb6b
+blue = #82aaff
+magenta = #c792ea
+cyan = #89ddff
+white = #d0d0d0
 
+black-lighter = #434758
+red-lighter = #ff8b92
+green-lighter = #ddffa7
+yellow-lighter = #ffe585
+blue-lighter = #9cc4ff
+magenta-lighter = #9cc4ff
+cyan-lighter = #9cc4ff
+white-lighter = #ffffff
+
+background = ${colors.black}
+foreground = ${colors.white}
+# }}}
+# {{{ mybar
+[bar/mybar]
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = false
+bottom=true
+
+dpi-x = 96
+dpi-y = 96
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 0
+
+font-0 = Source Code Pro:size=11
+font-1 = NotoEmoji:scale=10:antialias=false
+font-2 = fontawesome:pixelsize=10
+font-3 = JetBrains Mono Nerd Font:monospace:size=10
+
+modules-left = i3
+modules-right = pulseaudio backlight redshift cpu ram-memory date battery ibus 
+
+tray-position = right
+tray-padding = 2
+
+wm-restack = i3
+scroll-up = i3.next
+scroll-down = i3.prev
+# }}}
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+# {{{ i3
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+enable-click = true
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.blue}
+
+# ws-icon-0 = 1;♚
+# ws-icon-1 = 2;♛
+# ws-icon-2 = 3;♜
+# ws-icon-3 = 4;♝
+# ws-icon-4 = 5;♞
+# ws-icon-default = ♟
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+# label-focused-background = ${colors.red}
+label-focused-underline= ${colors.blue}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+; label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = %name%
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.black}
+label-urgent-padding = 1
+# }}}
+# {{{ ibus
+[module/ibus]
+type = custom/script
+exec = ibus engine | awk '/Bamboo/ { print "VI" } /eng/ { print "EN" }'
+interval = 0.5
+format-prefix = " "
+format-prefix-foreground = ${colors:red-lighter}
+format-underline = ${colors.green}
+click-left = sh ~/.config/polybar/ibus-change-engine.sh
+# }}}
+# {{{ mpd
+# TODO
+[module/mpd]
+type = internal/mpd
+
+format-playing = <toggle> <label-time> <label-song>
+format-paused = <toggle> <label-time> <label-song>
+format-stopped = 
+label-song = [%album-artist%] %title%
+label-time = %elapsed%/%total%
+
+label-song-maxlen = 30
+label-song-ellipsis = true
+
+format-playing-underline = ${colors.yellow}
+format-paused-underline = ${colors.yellow}
+format-stopped-underline = ${colors.yellow}
+
+label-separator = 0
+separator-foreground = ${colors.red}
+
+icon-pause = 
+icon-play = 
+icon-stop = 
+icon-prev = 1
+icon-next = 2
+# }}}
+# {{{ pulseaudio 
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+
+bar-volume-width = 7
+bar-volume-foreground-0 = ${colors.white}
+bar-volume-foreground-1 = ${colors.yellow}
+bar-volume-foreground-2 = ${colors.yellow}
+bar-volume-foreground-3 = ${colors.blue}
+bar-volume-foreground-4 = ${colors.blue}
+bar-volume-foreground-5 = ${colors.green}
+bar-volume-foreground-6 = ${colors.green}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.white-lighter}
+
+format-volume = ♪ <bar-volume> <label-volume>
+label-volume = %percentage%%
+
+format-mute = ♪ <label-muted>
+label-muted = MUTE
+
+format-volume-underline = ${colors.white}
+format-muted-underline = ${colors.black-lighter}
+# }}} 
+# {{{ backlight
+# TODO change brightness by scrolling
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+enable-scroll = true
+
+format = <ramp> <bar> <label>
+label =  %percentage%%
+
+format-underline = ${colors.magenta}
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+; Only applies if <bar> is used
+bar-width = 7
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+# }}}
+# {{{ cpu
+[module/cpu]
+type = internal/cpu
+format =  <label>
+# label = %percentage:2%%
+label = "%percentage:2%%"
+format-underline = ${colors.red}
+# }}}
+# {{{ ram 
+[module/ram-memory]
+type = internal/memory
+interval = 10
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+format =  <label>
+label=%gb_used:.1f%
+
+format-underline = ${colors.blue}
+# }}}
+# {{{ date
 [module/date]
 type = internal/date
-date = %Y-%m-%d%
+interval = 5
+
+date =
+date-alt = " %d-%m-%Y"
+time =  %H:%M
+time-alt = %H:%M
+
+format-underline = ${colors.cyan}
+label = "%date% %time%"
+# }}}
+# {{{ battery
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+
+full-at = 95
+
+time-format = %H:%M
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.cyan}
+format-charging-underline = ${colors.yellow}
+format-full-underline = ${colors.yellow}
+label-discharging = %percentage:2%% %time%
+label-charging =  %percentage:2%% %time%
+label-full =  %percentage:2%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+# }}}
+# {{{ redshift
+ [module/redshift]
+[module/redshift]
+type = custom/script
+format-prefix = " "  
+exec = sh ~/.config/polybar/redshift.sh temperature 
+click-left = sh ~/.config/polybar/redshift.sh toggle 
+interval=1.0
+format-underline = ${colors.yellow-lighter}
+# }}}
