@@ -194,11 +194,11 @@ if __name__ == "__main__":
     print("add")
     add_to_old_list(os.path.join(dir_path, "old_list"), os.path.join(dir_path, "song_list"))
 
-    # os.system("sudo umount /mnt")
-    # os.system("sudo jmtpfs -o allow_other /mnt")
-    # path = r"/mnt/Internal shared storage/Music/Music"
-    # delete_song(path, song_list)
-    # # Copy to phone
-    # copy(song_dir, path)
+    os.system("sudo umount /mnt")
+    os.system("sudo jmtpfs -o allow_other /mnt")
+    path = r"/mnt/Internal shared storage/Music/Music"
+    delete_song(path, song_list)
+    # Copy to phone
+    copy(song_dir, path)
 
 

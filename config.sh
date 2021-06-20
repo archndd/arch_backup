@@ -134,4 +134,3 @@ sudo chown $USER:$USER $cron
 sudo chmod 600 $cron
 add_string_to_file "00 12 * * * $(which tmpwatch) 7d ${HOME}/.tmp" "$cron"
 # }}}
-

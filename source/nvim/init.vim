@@ -7,8 +7,14 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'itchyny/lightline.vim'
 
 """"" Mosly for PROPRAMMING
+" NERDTree
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
@@ -18,7 +24,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 
-""""" MARKDOWN
+Plug 'honza/vim-snippets'
+" HTML
+" Plug 'mattn/emmet-vim'
+
+"""" MARKDOWN
 " tabular goes with vim markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -34,11 +44,10 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 let g:semshi#excluded_hl_groups = []
 let g:semshi#mark_selected_nodes = 0
 Plug 'uiiaoo/java-syntax.vim'
-Plug 'tpope/vim-classpath'
 highlight link javaIdentifier NONE
-" Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lambdalisue/suda.vim'
+
 " Tmux stuff
 Plug 'benmills/vimux'
 let g:VimuxPromptString="> "
@@ -47,6 +56,9 @@ let g:VimuxHeight = "28"
 Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
+
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 " }}}
 " {{{ C++
 " c++ syntax highlighting
@@ -61,20 +73,21 @@ let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "}}}
-" {{{ NERDTree
-nnoremap <A-e> :NERDTreeToggle<CR>
-"}}}
 " {{{ Coc
 set hidden
 set nobackup
 set nowritebackup
 set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
+set shortmess+=c
+
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -86,16 +99,15 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -109,8 +121,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -132,11 +146,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -147,11 +160,29 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-i> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-l> <Plug>(coc-snippets-expand-jump)
 " }}}
+" {{{ NERDTree
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" " Start NERDTree when Vim is started without file arguments.
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+autocmd VimEnter * NERDTree | wincmd p
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+nnoremap <A-e> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeFocus<CR>
+"}}}
 " {{{ Colorscheme
 set termguicolors
 set t_Co=256
@@ -177,6 +208,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 " }}}
+" {{{ General Configuration
 " {{{ Indent
 set autoindent
 set expandtab
@@ -205,7 +237,7 @@ set wrap
 set showmatch matchtime=3 " Show matching bracket
 " toggle invisible characters
 set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=→
+set showbreak=↪
 nnoremap <silent> <F12> :set list!<CR>
 " }}}
 " {{{ User interface
@@ -238,10 +270,12 @@ filetype plugin on
 if has('mouse')
     set mouse=a " Allow to use mouse
 endif
-
+" Allow vim to run zsh aliases
+let &shell='/bin/zsh -i'
+" }}}
 " {{{ General mapping 
 let mapleader = " " " Set leader to <space>
-noremap " " <nop>
+noremap <space> <nop>
 
 " Fast saving
 nnoremap <leader>w :w<CR>
@@ -284,10 +318,10 @@ noremap <silent> j gj
 noremap <silent> k gk
 noremap <silent> H g^
 noremap <silent> L g$
-noremap <silent> <A-j> 7j
-noremap <silent> <A-k> 7k
-noremap <silent> <A-h> 5h
-noremap <silent> <A-l> 5l
+" noremap <silent> <A-j> 7j
+" noremap <silent> <A-k> 7k
+" noremap <silent> <A-h> 5h
+" noremap <silent> <A-l> 5l
 
 " Add a line in normal mode
 nnoremap <leader>o o<ESC>
@@ -302,8 +336,6 @@ nnoremap <leader>a za
 nnoremap <leader>sa zm
 
 " init.vim editing 
-nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>:noh<CR>
 autocmd BufNewFile,BufReadPre init.vim nnoremap <silent> <leader>w :w<CR>:source $MYVIMRC<CR>
 
 " Keep visual selection when indenting
@@ -315,7 +347,6 @@ nnoremap <leader>= z=
 
 " Swap song name and artist
 vnoremap <leader>sw :s/\(.*\) - \(.*\)/\2 - \1<CR>:noh<CR>$
-
 " Capitalize each word
 vnoremap <leader>su gugv:s/\<./\u&/g<CR>:noh<CR>$
 
@@ -330,8 +361,6 @@ nnoremap <leader>vi :VimuxInspectRunner<CR>
 nnoremap <leader>vl :w<CR>:VimuxRunLastCommand<CR>
 " }}}
 " }}}
-
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
 autocmd BufNewFile,BufRead *.s,*.asm :set filetype=asm
+
+

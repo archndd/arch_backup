@@ -3,21 +3,21 @@
 <documentInfo url="/home/duy/Downloads/Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf">
  <generalInfo>
   <history>
-   <oldPage viewport="124;C2:0.5:0.218006:1"/>
-   <oldPage viewport="68;C2:0:-0.00462963:2"/>
-   <oldPage viewport="83;C2:0:-0.00462963:2"/>
-   <oldPage viewport="124;C2:0.499664:0.234396:1"/>
-   <oldPage viewport="83;C2:0:-0.00462963:2"/>
-   <oldPage viewport="109;C2:0:-0.00462963:2"/>
-   <oldPage viewport="95;C2:0:-0.00462963:2"/>
-   <oldPage viewport="124;C2:0:-0.00462963:2"/>
-   <oldPage viewport="68;C2:0:-0.00462963:2"/>
-   <oldPage viewport="135;C2:0.539315:0.918725:1"/>
-   <current viewport="108;C2:0.499664:0.3022:1"/>
+   <oldPage viewport="388"/>
+   <oldPage viewport="387"/>
+   <oldPage viewport="386"/>
+   <oldPage viewport="385;C2:0.5:0.588117:1"/>
+   <oldPage viewport="386"/>
+   <oldPage viewport="387"/>
+   <oldPage viewport="388"/>
+   <oldPage viewport="389"/>
+   <oldPage viewport="390"/>
+   <oldPage viewport="391"/>
+   <current viewport="399;C2:0.5:0.0959641:1"/>
   </history>
   <views>
    <view name="PageView">
-    <zoom value="1.75" mode="0"/>
+    <zoom mode="0" value="1.753"/>
     <continuous mode="1"/>
     <viewMode mode="0"/>
     <trimMargins value="0"/>

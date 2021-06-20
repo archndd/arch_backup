@@ -1,7 +1,7 @@
 add ~/Music/
+clear
 update
 q
-clear
 add ~/Music
 set lib_sort=albumartist date album discnumber tracknumber title filename play_count
 set lib_sort=play_count albumartist date album discnumber tracknumber title filename play_count

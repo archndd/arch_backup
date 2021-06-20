@@ -41,7 +41,7 @@ function add_new_user() {
     messout "Add user: " header
     confirm
     case $choice in
-        y ) useradd -G wheel -s /bin/bash $username;;
+        y ) useradd -m -G wheel -s /bin/bash $username;;
     esac
 
     messout "Add password" header

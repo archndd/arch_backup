@@ -1,7 +1,7 @@
 alias nv="nvim"
 alias journalctl="grc journalctl"
 alias mkd="mkdir -pv"
-alias ls="ls -chN --color=auto --group-directories-first --time-style=\"+%H:%M %d-%m-%Y\""
+alias ls="lsd"
 alias SS="sudo systemctl"
 
 # Tmux
@@ -21,13 +21,15 @@ alias shut="shutdown now"
 alias reb="reboot"
 alias note="nvim ~/vimwiki/index.md"
 
-alias chs="bluetoothctl connect FC:58:FA:15:E0:3C"
+alias chs="bluetoothctl connect 28:52:E0:FF:64:16"
+alias dhs="bluetoothctl disconnect 28:52:E0:FF:64:16"
 alias sl="nvim ~/basic_setup/song_manager/song_list"
 alias update_song="python3 ~/basic_setup/song_manager/main.py"
 alias ncard="optimus-manager --switch nvidia --no-confirm && gnome-session-quit --no-prompt"
 alias cat="bat"
 # alias fzf="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"
 alias xret="xrdb ~/.Xresources"
+alias disk_usage="ncdu"
 
 cdl () { builtin cd "$@" && ls} 
 clear_nvim_swp() { rm ~/.config/nvim/tmp/* }

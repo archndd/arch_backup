@@ -24,13 +24,13 @@ java_new_project(){
     mkdir -p $PROJECTNAME/src
     mkdir -p $PROJECTNAME/build/classes
     IFS=, read -rA PACK <<< ${PACKAGE}
-    cd $PROJECTNAME
+    cd $PROJECTNAME/src
     java_new_package ${PACK[@]}
 }
 
 java_new_package(){
     while [[ $# -gt 0 ]] do
-        mkdir -p src/$1
+        mkdir -p $1
         shift
     done
 }
@@ -41,7 +41,7 @@ java_new_class(){
     PACKAGEPATH=$(dirname "${1}")
     JAVAPACK=${PACKAGEPATH//\//.}
 
-    if [[ ! -d src/$PACKAGEPATH ]]; then
+    if [[ ! -d $PACKAGEPATH ]]; then
         echo "Package not existed"
         choice=""
         vared -p "Create new one (y/n): " choice
@@ -49,18 +49,18 @@ java_new_class(){
             return 0
         fi
     fi
-    mkdir -p src/$PACKAGEPATH
-    if [[ -f src/$PACKAGEPATH/$FILENAME.java ]]; then
+    mkdir -p $PACKAGEPATH
+    if [[ -f $PACKAGEPATH/$FILENAME.java ]]; then
         echo "Java file existed"
         return 1
     fi
-    echo "package ${JAVAPACK};\n\npublic class ${FILENAME}{\n\t\n}" > src/$PACKAGEPATH/$FILENAME.java
-    nv -c "4" src/$PACKAGEPATH/$FILENAME.java
+    echo "package ${JAVAPACK};\n\npublic class ${FILENAME}{\n\t\n}" > $PACKAGEPATH/$FILENAME.java
+    nv -c "4" $PACKAGEPATH/$FILENAME.java
 }
 
 java_com() {
-    SOURCEPATH="src"
-    BUILDCLASS="./build/classes"
+    SOURCEPATH="../src"
+    BUILDCLASS="../build/classes"
     OTHER=()
     while [[ $# -gt 0 ]] do
         key="$1"
@@ -92,5 +92,5 @@ java_compile_all(){
     done
 }
 java_run(){
-    java -cp build/classes $1
+    java -cp ../build/classes $1
 }

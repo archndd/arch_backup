@@ -30,6 +30,3 @@ cp ~/Pictures/* ~/basic_setup/source/backgrounds
 
 rm ~/basic_setup/source/cmus -r
 cp ~/.config/cmus ~/basic_setup/source -r
-
-# rm ~/basic_setup/source/Documents -r
-# cp ~/Documents ~/basic_setup/source -r
