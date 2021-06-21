@@ -51,6 +51,14 @@ function add_string_to_file(){
     fi
 }
 
+function confirm_messsage(){
+    read -p "${1} (y/n): " choice
+    while [ -z "$choice" ] || { [ $choice != "y" ] && [ $choice != "n" ]; }
+    do
+        read -p "${1} (y/n): " choice
+    done
+}
+
 function confirm(){
     read -p "Are you sure (y/n): " choice
     while [ -z "$choice" ] || { [ $choice != "y" ] && [ $choice != "n" ]; }

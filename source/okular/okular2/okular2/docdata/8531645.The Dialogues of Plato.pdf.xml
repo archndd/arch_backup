@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE documentInfo>
+<documentInfo url="/home/duy/Documents/The Dialogues of Plato.pdf">
+ <generalInfo>
+  <history>
+   <oldPage viewport="10;C2:0.5:0.327218:1"/>
+   <oldPage viewport="25;C2:0.5:0.559879:1"/>
+   <oldPage viewport="27;C2:0.253664:0.148475:2"/>
+   <oldPage viewport="24;C2:0.167989:0.407417:2"/>
+   <oldPage viewport="27;C2:0.253664:0.148475:2"/>
+   <current viewport="28;C2:0.499716:0.0733871:1"/>
+  </history>
+  <views>
+   <view name="PageView">
+    <zoom mode="0" value="1.5"/>
+    <continuous mode="1"/>
+    <viewMode mode="0"/>
+    <trimMargins value="0"/>
+   </view>
+  </views>
+ </generalInfo>
+</documentInfo>

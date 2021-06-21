@@ -13,13 +13,13 @@ shouldShowToolBarComingFromFullScreen=true
 
 [MainWindow]
 Height 1080=1025
-RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAAAAB4AAAAPfAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAEzv////8AAAAAAAAAAA==
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAQUAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAAAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA==
 ToolBarsMovable=Disabled
 Width 1920=1920
 Window-Maximized 1024x1280=true
 Window-Maximized 1050x1680=true
-eDP-1 Height 1920x1080=1055
+eDP-1 Height 1920x1080=1080
 eDP-1 Width 1920x1080=1920
 eDP-1 XPosition 1920x1080=0
 eDP-1 YPosition 1920x1080=0
@@ -34,22 +34,20 @@ eDP-1 Width 1920x1080=600
 
 [Recent Files]
 File1[$e]=$HOME/Downloads/Steven S. Skiena (auth.) - The algorithm design manual-Springer-Verlag London (2008).pdf
-File10[$e]=$HOME/Documents/Mark Manson/Relationships - Mark Manson.pdf
 File2[$e]=$HOME/Documents/The Science of Spice - Stuart Farrimond .pdf
 File3[$e]=$HOME/Documents/The 100 Simple Secrets Of Happy People.pdf
 File4[$e]=$HOME/Documents/The Dialogues of Plato.pdf
 File5[$e]=$HOME/Documents/Tâm lý/Kevin Simler, Robin Hanson - The Elephant in the Brain.pdf
-File6[$e]=$HOME/Downloads/SSG113/Working in Groups 7th Edition.pdf
-File7[$e]=$HOME/Downloads/SE160186 - Nguyễn Dư Duy.pdf
-File8[$e]=$HOME/Downloads/Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
-File9[$e]=$HOME/Documents/Technical Analysis Explained - Martin Pring.pdf
+File6[$e]=$HOME/Downloads/Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
+File7[$e]=$HOME/Documents/Technical Analysis Explained - Martin Pring.pdf
+File8[$e]=$HOME/Documents/Mark Manson/Relationships - Mark Manson.pdf
+File9[$e]=$HOME/Downloads/SSG113/Working in Groups 7th Edition.pdf
 Name1[$e]=Steven S. Skiena (auth.) - The algorithm design manual-Springer-Verlag London (2008).pdf
-Name10[$e]=Relationships - Mark Manson.pdf
 Name2[$e]=The Science of Spice - Stuart Farrimond .pdf
 Name3[$e]=The 100 Simple Secrets Of Happy People.pdf
 Name4[$e]=The Dialogues of Plato.pdf
 Name5[$e]=Kevin Simler, Robin Hanson - The Elephant in the Brain.pdf
-Name6[$e]=Working in Groups 7th Edition.pdf
-Name7[$e]=SE160186 - Nguyễn Dư Duy.pdf
-Name8[$e]=Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
-Name9[$e]=Technical Analysis Explained - Martin Pring.pdf
+Name6[$e]=Remzi H. Arpaci-Dusseau Andrea C Arpaci-Dusseau - Operating Systems-Three Easy Pieces.pdf
+Name7[$e]=Technical Analysis Explained - Martin Pring.pdf
+Name8[$e]=Relationships - Mark Manson.pdf
+Name9[$e]=Working in Groups 7th Edition.pdf

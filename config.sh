@@ -17,26 +17,30 @@ messout "bashrc and xprofile" info
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
-cp -r ./source/bash_config/ ~ 
+cp -r ./source/bash_config/* ~ 
 
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/tmux-resurrect/
 git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/tmux-yank/
 sudo usermod --shell /usr/bin/zsh $USER
-messout "urxvt"
 messout "kitty"
 mkdir -p ~/.config/kitty
 cp ./source/kitty/kitty.conf ~/.config/kitty
 # }}}
 # {{{ Connection
 messout "Enable firewall" info
-# TODO make a firewall rule
 messout "Change DNS to 8.8.8.8 8.8.4.4" info
 add_string_to_file "nameserver 8.8.8.8\nnameserver 8.8.4.4" /etc/resolv.conf.head
-
+# }}}
+# {{{ Pipewire
+messout "pipewire"
+systemctl enable --user pipewire
+systemctl enable --user pipewire-pulse
+# }}}
+# {{{ Bluetooth
 messout "Start bluetooth" info
 sudo systemctl enable bluetooth
 add_string_to_file "# automatically switch to newly-connected devices\nload-module module-switch-on-connect" /etc/pulse/default.pa
-add_string_to_file "AutoEnable=true" /etc/bluetooth/main.conf
+[[ $(grep -qs "^AutoEnable=true$" /etc/bluetooth/main.conf) ]] || sudo sed -i "s/^#AutoEnable=false$/AutoEnable=true/" /etc/bluetooth/main.conf
 # }}}
 # {{{ Nvidia stuff
 echo -e "${GREEN}${BOLD}Fix the fucking tearing problem that made me want to kill myself such when I tried fixing it and finally I did it${NORMAL}${NOCOLOR}\n"
@@ -65,14 +69,10 @@ for d in ~/.mozilla/firefox/*.default-release/ ; do
 done
 cp ./source/firefox/userContent.css ~/.mozilla/firefox/*.default-release/chrome
 # }}}
-# {{{ Documents
-# cp ./source/Documents ~ -r
-# }}}
 # {{{ Touchpad 
 messout "Touchpad" info
 sudo cp ./source/devices/touchpad /etc/X11/xorg.conf.d/40-libinput.conf
 sudo chmod +r /etc/X11/xorg.conf.d/40-libinput.conf
-
 # }}}
 # {{{ i3
 messout "i3"
@@ -81,7 +81,7 @@ cp ./source/i3/config ~/.config/i3
 # }}}
 # {{{ Polybar
 mkdir -p .config/polybar
-cp ./source/config/polybar/* ~/.config/polybar
+cp -a ./source/polybar/* ~/.config/polybar
 # }}}
 # {{{ picom
 mkdir -p ~/.config/picom
@@ -93,13 +93,13 @@ cp ./source/redshift/redshift.conf ~/.config/redshift
 # }}}
 # {{{ GTK
 mkdir -p ~/.config/gtk-3.0
-cp ./desktop_environment/gtk.css ~/.config/gtk-3.0/gtk.css
+cp ./source/gtk/* ~/.config/gtk-3.0/
 # }}}
 # {{{ Dunst
 mkdir -p ~/.config/dunst
-cp ./source/dunst/dunstc ~/.config/dunst
+cp ./source/dunst/dunstrc ~/.config/dunst
 # }}}
-# {{{ Thunar
+# {{{ Thunar and Cmus
 cp ./source/thunar/uca.xml ~/.config/Thunar
 cp ./source/cmus ~/.config -r
 # }}}
@@ -120,7 +120,7 @@ cp -r ./source/nvim/ ~/.config/nvim
 nvim +PlugInstall +qall
 
 # TODO insert pylint, config pylint
-nvim +"CocInstall coc-python coc-sh coc-css coc-json coc-clangs coc-html coc-fzf-preview coc-tsserver" +qall
+nvim +"CocInstall coc-sh coc-css coc-json coc-clangd coc-html coc-fzf-preview coc-tsserver coc-snippets coc-pyright coc-java" +qall
 # }}}
 #{{{ Change tmp dir
 mkdir -p /.tmp

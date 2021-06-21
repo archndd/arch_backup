@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE documentInfo>
-<documentInfo url="/home/duy/Documents/Kevin Simler, Robin Hanson - The Elephant in the Brain.pdf">
+<documentInfo url="/home/duy/Documents/Tâm lý/Kevin Simler, Robin Hanson - The Elephant in the Brain.pdf">
  <generalInfo>
   <history>
-   <oldPage viewport="312;C2:0.5:0.129669:1"/>
    <oldPage viewport="315;C2:0.5:0.886113:1"/>
    <oldPage viewport="318;C2:0.5:0.563125:1"/>
    <oldPage viewport="320;C2:0.5:0.707785:1"/>
@@ -13,11 +12,12 @@
    <oldPage viewport="324;C2:0.5:0.996581:1"/>
    <oldPage viewport="326;C2:0.5:0.602052:1"/>
    <oldPage viewport="327;C2:0.5:0.674119:1"/>
-   <current viewport="328;C2:0.5:0.746186:1"/>
+   <oldPage viewport="328;C2:0.499431:0.259274:1"/>
+   <current viewport="9;C2:0.499431:0.94879:1"/>
   </history>
   <views>
    <view name="PageView">
-    <zoom value="1.15" mode="0"/>
+    <zoom mode="0" value="0.75"/>
     <continuous mode="1"/>
     <viewMode mode="0"/>
     <trimMargins value="0"/>

@@ -4,8 +4,8 @@ source ./utility.sh
 
 function check_internet() {
     messout "Checking Internet" header
-    ping -c 1 archlinux.org
-    [[ $? == 0 ]] || messout "No internet" error || messout "Aborting" error || exit 1
+    ping -c 2 archlinux.org
+    [[ $? != 0 ]] && messout "No internet" error && messout "Aborting" error && exit 1
 }
 
 function check_sys_time() {
@@ -17,12 +17,11 @@ function get_part_name(){
     read -e -p "${1} partition: " pt
 
     confirm
-
     case $choice in
         n ) get_part_name $1;;
         y ) 
             partprobe -d -s ${pt} >/dev/null 2>&1
-            if [ $? -ne 0 ]; then
+            if [[ $? != 0 ]]; then
                 messout "Not a valid partition" error >&2
                 get_part_name $1
             fi
@@ -31,38 +30,41 @@ function get_part_name(){
     esac
 }
 
-function get_and_mount_part(){
-    fdisk -l
-    main_part=$(get_part_name "/root")
-    home_part=$(get_part_name "/home")
-    boot_part=$(get_part_name "/boot")
-    swap_part=$(get_part_name "Swap")
+function check_mount(){
+    # Get / partition and mount only not mounted or umount
+    if [[ $(grep -qs "/dev/.* /mnt ext4" /proc/mounts) ]]; then
+        messout "Some partition is mounted in /mnt" warning
+        confirm_messsage "Unmount"
+        if [[ $choice == "y" ]]; then
+            umount -R /mnt
+            [[ $? != 0 ]] && messout "Umount unsuccessfully. Aborting" error && exit 1
 
-    # Ensure format
-    messout "Do you want to format /root" question
-    confirm
-    if [ $choice == "y" ]; then
-        mkfs.ext4 $main_part
-    fi
+            main_part=$(get_part_name "/root")
+            confirm_messsage "Do you want to format /root" 
+            if [[ $choice == "y" ]]; then
+                mkfs.ext4 $main_part
+            fi
+        fi
+    else
+        main_part=$(get_part_name "/root")
+        confirm_messsage "Do you want to format /root" 
+        if [[ $choice == "y" ]]; then
+            mkfs.ext4 $main_part
+        fi
+    fi 
 
-    # Mount all partitions
-    mount $main_part /mnt
     mkdir -pv /mnt/home /mnt/boot
-    mount $home_part /mnt/home
-    mount $boot_part /mnt/boot
-    mkswap $swap_part
-    swapon $swap_part
-}
-
-function update_mirror_list() {
-    cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-    rankmirrors -n 20 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+    # If /home or /boot not monut then get partition and mount
+    [[ $(grep -qs "/dev/.* /mnt/home ext4" /proc/mounts) ]] || home_part=$(get_part_name "/home") && mount $home_part /mnt/home
+    [[ $(grep -qs "/dev/.* /mnt/boot ext4" /proc/mounts) ]] || boot_part=$(get_part_name "/boot") && mount $boot_part /mnt/boot
+    # Get swap partition if not on
+    [[ $(swapon -s | grep -qs "/dev/.* ") ]] || swap_part=$(get_part_name "Swap") && mkswap $swap_part && swapon $swap_part 
 }
 
 function install_arch(){
     messout "Installing arch" header
     pacstrap /mnt base base-devel linux-lts linux-firmware
-    cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d
+    [[ $? != 0 ]] && messout "Pacstrap failed. Aborting" error && exit 1
 }
 
 function gen_fstab(){
@@ -73,8 +75,7 @@ function gen_fstab(){
 function main() {
     check_internet
     check_sys_time
-    get_and_mount_part
-    update_mirror_list
+    check_mount
     install_arch
     gen_fstab
 }

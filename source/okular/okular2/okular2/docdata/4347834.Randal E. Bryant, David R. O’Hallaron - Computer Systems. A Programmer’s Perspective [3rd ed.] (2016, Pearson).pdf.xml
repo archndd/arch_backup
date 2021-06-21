@@ -3,21 +3,21 @@
 <documentInfo url="/home/duy/Documents/Lập trình/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.] (2016, Pearson).pdf">
  <generalInfo>
   <history>
-   <oldPage viewport="272;C2:0.49964:0.00791789:1"/>
-   <oldPage viewport="271;C2:0.49964:0.0178886:1"/>
-   <oldPage viewport="270;C2:0.49964:0.0278592:1"/>
-   <oldPage viewport="269;C2:0.49964:0.0378299:1"/>
-   <oldPage viewport="268;C2:0.49964:0.0478006:1"/>
-   <oldPage viewport="267;C2:0.49964:-0.000879765:1"/>
-   <oldPage viewport="266;C2:0.49964:0.947507:1"/>
-   <oldPage viewport="267;C2:0.49964:-0.000879765:1"/>
-   <oldPage viewport="266;C2:0.49964:0.947507:1"/>
-   <oldPage viewport="267;C2:0.49964:-0.000879765:1"/>
-   <current viewport="266;C2:0.49964:0.771554:1"/>
+   <oldPage viewport="271;C2:0.5:0.0322581:1"/>
+   <oldPage viewport="270;C2:0.5:0.977713:1"/>
+   <oldPage viewport="271;C2:0.5:0.0404692:1"/>
+   <oldPage viewport="270;C2:0.5:0.98651:1"/>
+   <oldPage viewport="271;C2:0.5:0.992962:1"/>
+   <oldPage viewport="272;C2:0.5:0.94956:1"/>
+   <oldPage viewport="273;C2:0.49964:0.18651:1"/>
+   <oldPage viewport="296;C2:0.49964:0.0733138:1"/>
+   <oldPage viewport="269;C2:0.5:0.205279:1"/>
+   <oldPage viewport="306;C2:0.5:0.73607:1"/>
+   <current viewport="269;C2:0.5:0.0293255:1"/>
   </history>
   <views>
    <view name="PageView">
-    <zoom value="1.5" mode="0"/>
+    <zoom mode="0" value="1.5"/>
     <continuous mode="1"/>
     <viewMode mode="0"/>
     <trimMargins value="0"/>
